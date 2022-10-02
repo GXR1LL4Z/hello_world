@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from dis import dis
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose 
@@ -107,7 +108,42 @@ def rotate_motion(velocity_publisher, angular_speed_d, angle, is_clockwise):
             print("Dotarlem do celu :)")
             break
 
+def go_to_goal(velocity_publisher, x_goal, y_goal):
 
+    #odczytanie obecnej pozycji
+    global x
+    global y
+
+    #tworzenie zmiennej typu Twist()
+    vellocity_message = Twist()
+
+    #petla ruchu
+    while True:
+        #stała ruchu liniowego i stala ruchu obrotowego
+        c_linear = 0.5
+        c_angular = 4.0
+
+        #obliczenie dystansu miedzy celem a aktualna pozycja 
+        distance = abs(math.sqrt((x_goal - x)**2 + (y_goal - y)**2))
+
+        #obliczenie kata miedzy obecna pozycja a celowym
+        angle_goal = math.atan2(y_goal - y, x_goal - x)
+
+        #nadanie predkosci liniowej i katowe w zaleznosci od dystansu
+        linear_speed = c_linear * distance
+        angular_speed = (angle_goal - yaw) * c_angular
+
+        #przypisanie w odpowiednie miejsca zmiennej velocity_message typu Twist() wartosci policzonych wyzej
+        vellocity_message.linear.x = linear_speed
+        vellocity_message.angular.z = angular_speed
+
+        velocity_publisher.publish(vellocity_message)
+        print("X = {} Y = {} Yaw = {}".format(x, y, yaw))
+
+        #sprawdzenie czy obiekt dotarl na miejsce
+        if (distance < 0.1):
+            break
+        
 
 #WIEKSZA CZESTOTLIWOSC DA WIEKSZA DOKLADNOSC !!!
 
@@ -127,7 +163,8 @@ if __name__ == '__main__':
 
         #wywolania funkcji sekwencji ruchow
         #move(velocity_publisher, 1, 4, False)
-        rotate_motion(velocity_publisher, 45, 270, True)
+        #rotate_motion(velocity_publisher, 45, 270, True)
+        go_to_goal(velocity_publisher, 2, 2)
 
     except rospy.ROSInterruptException():
         rospy.loginfo("Node terminated.")
