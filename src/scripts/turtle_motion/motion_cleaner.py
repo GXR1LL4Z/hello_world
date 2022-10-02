@@ -167,6 +167,28 @@ def set_orientation(velocity_publisher, speed_degree, angle_degree):
     print("Kat obrotu = {}".format(math.degrees(angle_radians)))
     print("Zadany kat = {}".format(angle_degree))
 
+def spiral_clean(velocity_publisher, rk, wk):
+    
+    
+    velocity_message = Twist()
+    global x
+    global y
+    loop_rate = rospy.Rate(1)
+
+    while x < 10.5 and y<10.5 :
+        rk = rk+0.1
+        velocity_message.linear.x = rk
+        velocity_message.linear.y = 0
+        velocity_message.linear.z = 0
+        velocity_message.angular.x = 0
+        velocity_message.angular.y = 0
+        velocity_message.angular.z = wk
+        velocity_publisher.publish(velocity_message)
+        loop_rate.sleep()
+
+    velocity_message.linear.x = 0
+    velocity_message.angular.z = 0
+    velocity_publisher.publish(velocity_message)
 
 
 #WIEKSZA CZESTOTLIWOSC DA WIEKSZA DOKLADNOSC !!!
@@ -189,8 +211,8 @@ if __name__ == '__main__':
         #move(velocity_publisher, 1, 4, False)
         #rotate_motion(velocity_publisher, 45, 270, True)
         #go_to_goal(velocity_publisher, 2, 2)
-        set_orientation(velocity_publisher, 30, 240)
-        
+        #set_orientation(velocity_publisher, 30, 240)
+        spiral_clean(velocity_publisher, 0, 2)
 
     except rospy.ROSInterruptException():
         rospy.loginfo("Node terminated.")
