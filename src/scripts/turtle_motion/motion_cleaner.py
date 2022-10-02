@@ -165,6 +165,7 @@ if __name__ == '__main__':
         #move(velocity_publisher, 1, 4, False)
         #rotate_motion(velocity_publisher, 45, 270, True)
         go_to_goal(velocity_publisher, 2, 2)
+        
 
     except rospy.ROSInterruptException():
         rospy.loginfo("Node terminated.")
