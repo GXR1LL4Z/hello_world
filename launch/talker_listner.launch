@@ -1,0 +1,4 @@
+<launch>
+<node name = "listner_node" pkg = "hello_world" type = "listner.py" output = "screen"/>
+<node name = "talker_node" pkg = "hello_world" type = "talker.py" output = "screen"/>
+</launch>

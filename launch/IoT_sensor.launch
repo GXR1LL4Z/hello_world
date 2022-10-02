@@ -1,0 +1,4 @@
+<launch>
+<node name = "iot_sensor_publisher_node" pkg = "hello_world" type = "IoT_sensor_pub.py" output = "screen"/>
+<node name = "iot_sensor_subscriber_node" pkg = "hello_world" type = "IoT_sensor_sub.py" output = "screen"/>
+</launch>
