@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from dis import dis
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose 
@@ -117,6 +116,9 @@ def go_to_goal(velocity_publisher, x_goal, y_goal):
     #tworzenie zmiennej typu Twist()
     vellocity_message = Twist()
 
+    #czestotliwosc publikowania
+    loop_rate = rospy.Rate(10)
+
     #petla ruchu
     while True:
         #stała ruchu liniowego i stala ruchu obrotowego
@@ -140,10 +142,32 @@ def go_to_goal(velocity_publisher, x_goal, y_goal):
         velocity_publisher.publish(vellocity_message)
         print("X = {} Y = {} Yaw = {}".format(x, y, yaw))
 
+        loop_rate.sleep()
+
         #sprawdzenie czy obiekt dotarl na miejsce
         if (distance < 0.1):
             break
         
+def set_orientation(velocity_publisher, speed_degree, angle_degree):
+    #odczyt aktualnej pozycji katowej
+    global yaw
+
+    #przeliczenie stopni na radiany
+    angle_radians = math.radians(angle_degree) - yaw
+    
+    #flaga, w kt strone szybciej sie odwroci
+    clockwise = 0
+
+    if angle_radians < 0:
+        clockwise = 1
+    else:
+        clockwise = 0
+        
+    rotate_motion(velocity_publisher, speed_degree, math.degrees(abs(angle_radians)), clockwise)
+    print("Kat obrotu = {}".format(math.degrees(angle_radians)))
+    print("Zadany kat = {}".format(angle_degree))
+
+
 
 #WIEKSZA CZESTOTLIWOSC DA WIEKSZA DOKLADNOSC !!!
 
@@ -164,7 +188,8 @@ if __name__ == '__main__':
         #wywolania funkcji sekwencji ruchow
         #move(velocity_publisher, 1, 4, False)
         #rotate_motion(velocity_publisher, 45, 270, True)
-        go_to_goal(velocity_publisher, 2, 2)
+        #go_to_goal(velocity_publisher, 2, 2)
+        set_orientation(velocity_publisher, 30, 240)
         
 
     except rospy.ROSInterruptException():
