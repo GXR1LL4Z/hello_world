@@ -1,4 +1,6 @@
 <launch>
 <node name = "turtlesim" pkg = "turtlesim" type = "turtlesim_node" output = "screen"/>
+<param name = "x_goal" value = "4"/>
+<param name = "y_goal" value = "7"/>
 <node name = "turtlesim_cleaner_node" pkg = "hello_world" type = "motion_cleaner.py" output = "screen"/>
 </launch>

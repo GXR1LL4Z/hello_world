@@ -207,13 +207,17 @@ if __name__ == '__main__':
         pose_subscriber = rospy.Subscriber(pose_topic, Pose, pose_callback)
         time.sleep(2)
 
+        #parametry zdefiniowane w pliku cleaner_app.launch
+        x_goal = rospy.get_param("x_goal")
+        y_goal = rospy.get_param("y_goal")
+
         #wywolania funkcji sekwencji ruchow
         #move(velocity_publisher, 1, 4, False)
         #rotate_motion(velocity_publisher, 45, 270, True)
         #go_to_goal(velocity_publisher, 2, 2)
         #set_orientation(velocity_publisher, 30, 240)
-        spiral_clean(velocity_publisher, 0, 2)
-
+        #spiral_clean(velocity_publisher, 0, 2)
+        go_to_goal(velocity_publisher, x_goal, y_goal)
     except rospy.ROSInterruptException():
         rospy.loginfo("Node terminated.")
 
