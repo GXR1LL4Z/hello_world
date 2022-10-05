@@ -15,3 +15,6 @@ cv2.imshow("Image", img)
 
 print("Nacisnij klawisz 0 aby zrobic kopie")
 cv2.waitKey(0)
+
+#print("Obraz skopiowano do folderu copy")
+#cv2.imwrite("/home/krzysztof/catkin_ws/src/hello_world/src/perception/copy/" + image_name + ".jpg", img)
