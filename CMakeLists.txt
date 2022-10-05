@@ -60,7 +60,7 @@ add_service_files(
   FILES
   AddTwoInts.srv
   Area.srv
-  
+  coordinates_check.srv
 )
 
 ## Generate actions in the 'action' folder
