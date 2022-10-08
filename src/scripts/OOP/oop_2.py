@@ -20,9 +20,18 @@ class Course:
         else:
             return False
 
+    def srednia_ocen(self):
+        value = 0
+        for student in self.students:
+            value = value + student.get_grade()
+        return value/len(self.students)
+
 s1 = Student("Tim", 19, 5)
 s2 = Student("Greg", 20, 4.5)
 course = Course("Math", 20)
 course.add_student(s1)
+course.add_student(s2)
 print(course.students[0].name)
+print(course.students[1].name)
+print(course.srednia_ocen())
 
