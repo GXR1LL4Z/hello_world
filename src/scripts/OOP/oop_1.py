@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from unicodedata import name
-
 
 class Dog:
     def __init__(self, name, age):
