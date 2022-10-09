@@ -4,7 +4,7 @@ import numpy as np
 import imutils
 
 path_1 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_1.jpg'
-#path_2 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_3.jpg'
+#path_2 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_2.jpg'
 #path_3 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_3.jpg'
 
 image_1 = cv2.imread(path_1)
