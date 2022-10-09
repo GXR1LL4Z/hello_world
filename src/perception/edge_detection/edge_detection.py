@@ -29,10 +29,10 @@ def convert_gray_to_binary(image_gray_scale, adaptive, show):
                                             255,                                    #max_value
                                             cv2.ADAPTIVE_THRESH_GAUSSIAN_C,         #adaptive method
                                             cv2.THRESH_BINARY_INV,                  #threshold type
-                                            115,                                    #blok size                         
+                                            235,                                    #blok size                         
                                             2)                                      #const
     else:
-        _, image_binary = cv2.threshold(image_gray_scale,127,255,cv2.THRESH_BINARY_INV)
+        image_binary = cv2.threshold(image_gray_scale,127,255,cv2.THRESH_BINARY_INV)
     if show:
         cv2.imshow('BINARY IMAGE', image_binary)
     else:
