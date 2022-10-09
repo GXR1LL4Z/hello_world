@@ -52,18 +52,36 @@ def drawCountours(image_to_draw, contours, name_of_image):
     cv2.drawContours(image_to_draw, contours, index, color, thickness)
     cv2.imshow(name_of_image, image_to_draw)
     
+def process_contours(binary_image, rgb_image, contours):
+    for c in contours:
+        area = cv2.contourArea(c)
+        perimeter = cv2.arcLength(c, True)
+        ((x, y), radius) = cv2.minEnclosingCircle(c)
+        if area > 1000 and area < 15000:
+            cv2.drawContours(rgb_image, [c], -1, (255, 0, 255), 2)
+            cx, cy = get_contour_center(c)
+            cv2.circle(rgb_image, (cx, cy), (int)(radius), (255, 0, 20), 2)
+    cv2.imshow('Processed contours',rgb_image)       
+def get_contour_center(contour):
+    M = cv2.moments(contour)
+    cx=-1
+    cy=-1
+    if (M['m00']!=0):
+        cx= int(M['m10']/M['m00'])
+        cy= int(M['m01']/M['m00'])
+    return cx, cy
 
 def main():
     #definicja sciezki do obrazka
-    image = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/edge_detection/czerwona_pilka.jpg' 
+    image = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/edge_detection/tennis.jpg' 
     show = True
     adaptive = True
     image_rgb = rgb_image(image, show)
     image_gray_scale = convert_rgb_to_gray(image_rgb, show)
     image_binary = convert_gray_to_binary(image_gray_scale, adaptive, show)
     contours = getCountours(image_binary)
-    drawCountours(image_rgb, contours, 'CONTURES ON RGB')
-
+    #drawCountours(image_rgb, contours, 'CONTURES ON RGB')
+    process_contours(image_binary, image_rgb, contours)
     #zaczekaj na przycisk 0 i zniszc wszytskie okna
     cv2.waitKey(0)
     cv2.destroyAllWindows()

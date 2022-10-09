@@ -23,8 +23,13 @@ yellow_upper = (60, 255, 255)
 
 #tworzenie maski
 mask = cv2.inRange(image_1_hsv, yellow_lower, yellow_upper)
-
+contours, hierarchy = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+index = -1
+thickness = 2
+color = (255,0,255)
+cv2.drawContours(image_1, contours, index, color, thickness)
 cv2.imshow('Mask', mask)
+cv2.imshow('PROCESSED CONTOURS', image_1)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
