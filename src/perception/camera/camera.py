@@ -2,9 +2,9 @@
 import numpy as np
 import cv2 
 #odczyt filmu ze sciezki
-captured_video = cv2.VideoCapture('/home/krzysztof/catkin_ws/src/hello_world/src/perception/camera/kule.mov')
+#captured_video = cv2.VideoCapture('/home/krzysztof/catkin_ws/src/hello_world/src/perception/camera/kule.mov')
 #odczyt streama z kamery na zywo
-#captured_video = cv2.VideoCapture(0)
+captured_video = cv2.VideoCapture(0)
 if not captured_video.isOpened():
     print("Cannot open camera")
     exit()
