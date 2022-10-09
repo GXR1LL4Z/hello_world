@@ -49,12 +49,12 @@ def contours(mask):
 def process_contours(contours, image_rgb):
     
     for c in contours:
-        approx = cv2.approxPolyDP(c, 0.01*cv2.arcLength(c, True), True)
         area = cv2.contourArea(c)
-        if area > 100 and area < 4000 :
+        #((x, y), radius) = cv2.minEnclosingCircle(c)
+        if area > 200 and area < 4000 :
             cv2.drawContours(image_rgb, [c], -1, (255, 0, 255), 2)
             cx, cy = get_contour_center(c)
-            cv2.circle(image_rgb, (cx, cy), 1, (255, 100, 255), 3)
+            cv2.circle(image_rgb, (cx, cy), 3, (255, 100, 255), 1)
     cv2.imshow('Processed contours',image_rgb)  
 def get_contour_center(contour):
     M = cv2.moments(contour)
