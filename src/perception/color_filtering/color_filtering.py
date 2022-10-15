@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import cv2
 import numpy as np
-import imutils
+
 
 path_1 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_1.jpg'
 #path_2 = '/home/krzysztof/catkin_ws/src/hello_world/src/perception/color_filtering/tennis_ball_2.jpg'
