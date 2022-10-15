@@ -2,7 +2,7 @@
 import serial.tools.list_ports
 import rospy
 from geometry_msgs.msg import Vector3
-import struct
+
 
 
 ports = serial.tools.list_ports.comports()
@@ -22,27 +22,21 @@ while True:
     if serialInst.in_waiting:
         line = str(serialInst.readline())
         
-        if line[2] == "X":
-            print("To jest X")
+        if line[2] == "X":            
             if serialInst.in_waiting:
                 line = str(serialInst.readline())
-                var = float(line[2:-5])
-                print(var)
-                print(type(var))
-        if line[2] == "Y":
-            print("To jest Y")
+                data_test.x = float(line[2:-5])
+                
+        if line[2] == "Y":            
             if serialInst.in_waiting:
                 line = str(serialInst.readline())
-                var = float(line[2:-5])
-                print(var)
-                print(type(var))
-        if line[2] == "Z":
-            print("To jest Z")
+                data_test.y = float(line[2:-5])
+                
+        if line[2] == "Z":            
             if serialInst.in_waiting:
                 line = str(serialInst.readline())
-                var = float(line[2:-5])
-                print(var)
-                print(type(var))
+                data_test.z = float(line[2:-5])
+        print(data_test)
 
 #jesli odmoa dostepu do portu:
 #sudo chmod 666 /dev/ttyACM0  
