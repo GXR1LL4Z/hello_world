@@ -19,24 +19,18 @@ serialInst.port = stm_port
 serialInst.open()
 data_test = Vector3()
 while True:
-    if serialInst.in_waiting:
+    if  serialInst.in_waiting:
         line = str(serialInst.readline())
-        
-        if line[2] == "X":            
-            if serialInst.in_waiting:
-                line = str(serialInst.readline())
-                data_test.x = float(line[2:-5])
+        if  line[2] == "X":            
+            data_test.x = float(line[5:-5])
                 
-        if line[2] == "Y":            
-            if serialInst.in_waiting:
-                line = str(serialInst.readline())
-                data_test.y = float(line[2:-5])
-                
-        if line[2] == "Z":            
-            if serialInst.in_waiting:
-                line = str(serialInst.readline())
-                data_test.z = float(line[2:-5])
+        if  line[2] == "Y":            
+            data_test.y = float(line[5:-5])
+                    
+        if  line[2] == "Z":            
+            data_test.z = float(line[5:-5])
         print(data_test)
+        
 
 #jesli odmoa dostepu do portu:
 #sudo chmod 666 /dev/ttyACM0  
