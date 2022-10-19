@@ -24,7 +24,6 @@ class data_receive():
             try:
                 try:
                     self.receive_data()
-                                  
                 except ValueError:
                     #wyslij jeszcze raz poprzedni odczyt
                     pass
@@ -40,7 +39,7 @@ class data_receive():
         if self.serialInst.in_waiting:
             self.line = str(self.serialInst.readline())
             values = re.findall(r"[-+]?(?:\d*\.\d+|\d+)", self.line)                
-            if len(values) >= 3:
+            if len(values) == 3:
                 self.data.x = float(values[0])
                 self.data.y = float(values[1])
                 self.data.z = float(values[2])
