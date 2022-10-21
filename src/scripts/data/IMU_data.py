@@ -47,7 +47,7 @@ class data_receive():
                 pass   
             rospy.loginfo(self.data)
             self.pub.publish(self.data)  
-        
+
 if __name__ == '__main__':
     rospy.init_node('IMU_data_pub', anonymous = True)
     data_receive()
