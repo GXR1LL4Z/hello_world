@@ -14,12 +14,12 @@ class sensor_data_pub:
     def publikowanie(self):
         i = 0
         data = Vector3()
-        while not rospy.is_shutdown:
+        while not rospy.is_shutdown():
             data.x = i
             data.y = i + 1
             data.z = i - 1
             rospy.loginfo(data)
-            self.pub.ublish(data)
+            self.pub.publish(data)
             self.rate.sleep()
             i = i + 1
 

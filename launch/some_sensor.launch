@@ -1,0 +1,4 @@
+<launch>
+<node name = "some_sensor_pub" pkg = "hello_world" type = "some_sensor_pub.py" output = "screen"/>
+<node name = "some_sensor_sub" pkg = "hello_world" type = "some_sensor_sub.py" output = "screen"/>
+</launch>
