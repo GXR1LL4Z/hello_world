@@ -61,6 +61,7 @@ add_service_files(
   AddTwoInts.srv
   Area.srv
   coordinates_check.srv
+  reach_goal.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -166,7 +167,8 @@ catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_pub.py DESTIN
 catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-
+catkin_install_python(PROGRAMS src/scripts/reach_goal_service/reach_goal_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/reach_goal_service/reach_goal_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node
