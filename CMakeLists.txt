@@ -218,7 +218,36 @@ catkin_install_python(PROGRAMS src/scripts/test/test.py DESTINATION ${CATKIN_PAC
 catkin_install_python(PROGRAMS src/scripts/turtle_motion/motion_cleaner.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 
-##perception 
+##perception
+#camera
+catkin_install_python(PROGRAMS src/perception/camera/camera.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#color_filtering
+catkin_install_python(PROGRAMS src/perception/color_filtering/color_filtering.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#copy
+
+#CVBridge
+catkin_install_python(PROGRAMS src/perception/CVBridge/CVBridge.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#edge_detection
+catkin_install_python(PROGRAMS src/perception/edge_detection/edge_detection.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#img_encoding
+catkin_install_python(PROGRAMS src/perception/img_encoding/img_encoding.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#img_structure
+catkin_install_python(PROGRAMS src/perception/img_structure/img_structure.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#open_copy
+catkin_install_python(PROGRAMS src/perception/open_copy/open_copy.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#squash_ball_detection
+catkin_install_python(PROGRAMS src/perception/squash_ball_detection/squash_ball_detection.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/perception/squash_ball_detection/squash_ball_camera.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#thresholding
+catkin_install_python(PROGRAMS src/perception/thresholding/thresholding.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 
 ## Mark executables for installation
