@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import rospy
 import time
 from hello_world.srv import AddTwoInts

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import serial.tools.list_ports
 import rospy
 from geometry_msgs.msg import Vector3

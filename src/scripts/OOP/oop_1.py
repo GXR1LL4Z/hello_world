@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 class Dog:
     def __init__(self, name, age):
         #dodajemy tutaj charakterystyczne wartosci obiektu 

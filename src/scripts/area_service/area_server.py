@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import time
 import rospy
 from hello_world.srv import Area

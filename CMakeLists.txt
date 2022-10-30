@@ -165,21 +165,61 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 
-#temp_sensor
-catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+##scripts
+#add_service
+catkin_install_python(PROGRAMS src/scripts/add_service/add_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/add_service/add_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-#some_sensor
-catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+#area_service
+catkin_install_python(PROGRAMS src/scripts/area_service/area_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/area_service/area_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#coordinates_check
+catkin_install_python(PROGRAMS src/scripts/coordinates_check/coordinates_check_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/coordinates_check/coordinates_check_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#data
+catkin_install_python(PROGRAMS src/scripts/data/data.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/data/IMU_data_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/data/IMU_data.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#IoT_sensor
+catkin_install_python(PROGRAMS src/scripts/IoT_sensor/IoT_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/IoT_sensor/IoT_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#OOP
+catkin_install_python(PROGRAMS src/scripts/OOP/oop_1.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/OOP/oop_2.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#power_service
+catkin_install_python(PROGRAMS src/scripts/power_service/power_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/power_service/power_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #reach_goal_service
 catkin_install_python(PROGRAMS src/scripts/reach_goal_service/reach_goal_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/reach_goal_service/reach_goal_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-#power_service
-catkin_install_python(PROGRAMS src/scripts/power_service/power_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-catkin_install_python(PROGRAMS src/scripts/power_service/power_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+#some_sensor
+catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/some_sensor/some_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#talker_listner
+catkin_install_python(PROGRAMS src/scripts/talker_listner/talker.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/talker_listner/listner.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#temp_sensor
+catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_pub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/temp_sensor/temp_sensor_sub.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#test
+catkin_install_python(PROGRAMS src/scripts/test/test.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#turtle_motion
+catkin_install_python(PROGRAMS src/scripts/turtle_motion/motion_cleaner.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+
+##perception 
+
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
@@ -201,8 +241,7 @@ catkin_install_python(PROGRAMS src/scripts/power_service/power_client.py DESTINA
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
+#reach_goal_service for installation (e.g. launch and bag files, etc.)
 # install(FILES
 #   # myfile1
 #   # myfile2

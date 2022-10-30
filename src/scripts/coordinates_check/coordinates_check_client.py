@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import rospy
 import sys
 from hello_world.srv import coordinates_check

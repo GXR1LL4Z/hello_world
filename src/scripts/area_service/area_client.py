@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import sys
 import rospy
 from hello_world.srv import Area

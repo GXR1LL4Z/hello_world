@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import rospy
 from hello_world.msg import IoTsensor
 import random

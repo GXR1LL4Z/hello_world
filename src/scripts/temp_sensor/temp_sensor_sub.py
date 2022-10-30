@@ -1,4 +1,3 @@
-from contextlib import nullcontext
 import rospy
 from hello_world.msg import temp_sensor
 
