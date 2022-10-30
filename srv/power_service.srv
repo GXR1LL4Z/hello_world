@@ -1,0 +1,6 @@
+#request
+int16 number
+int8 power
+---
+#response
+int32 result
